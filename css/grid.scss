@@ -1,0 +1,239 @@
+
+@import "compass/css3";
+
+$max_width: 1140px;
+$margin_width: 2.12766%;
+$d:8.51064%; /// DONT CHANGE
+
+@function column_width($cols){
+	$w: $cols * $d;
+	@return $w - $margin_width;
+}
+
+@function push_columnFrst($cols){
+	@return $cols * $d;
+}
+
+@function push_columns($cols){
+	$b : $cols * $d;
+	@return $b + $margin_width;
+}
+
+@function center_columns($cols){
+	$w: column_width($cols);
+	@return (100 - $w) / 2;
+}
+
+* { -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box;}
+
+.section {
+padding-left: 20px;
+padding-right: 20px;
+position: relative;	
+}
+
+.row  {
+width: 100%;
+max-width: $max_width;
+min-width: 755px;
+margin: 0 auto;
+overflow: hidden;
+}
+
+.row .row { min-width: 0; padding-left: 0; padding-right: 0;}
+.column, .columns { margin-left: $margin_width; float: left; min-height: 1px;}
+.column:first-child, .columns:first-child, .alpha { margin-left: 0;}
+.column.omega, .columns.omega { float: right;}
+.last{margin-right: 0px !important;}
+.hide { display: none !important;}
+
+/* ====================Column Classes 	 				
+------------------------------------------*/																					
+.row .one.column, .navigation .one.column 	 	 { width: column_width(1); }	
+.row .one.columns, .navigation .one.columns 	 { width: column_width(1); }
+.row .two.columns, .navigation .two.columns 	 { width: column_width(2); } 
+.row .three.columns, .navigation .three.columns  { width: column_width(3); }
+.row .four.columns, .navigation .four.columns    { width: column_width(4); }
+.row .five.columns, .navigation .five.columns    { width: column_width(5); }
+.row .six.columns, .navigation .six.columns   	 { width: column_width(6); }
+.row .seven.columns, .navigation .seven.columns  { width: column_width(7); }
+.row .eight.columns, .navigation .eight.columns  { width: column_width(8); }
+.row .nine.columns, .navigation .nine.columns  	 { width: column_width(9); }
+.row .ten.columns, .navigation .ten.columns   	 { width: column_width(10);}
+.row .eleven.columns, .navigation .eleven.columns{ width: column_width(11);}
+.row .twelve.columns, .navigation .twelve.columns{ width: column_width(12);}
+
+/* ==================== Push Classes 
+------------------------------------------*/
+.row .push_one { margin-left: push_columns(1); }
+.row .push_one:first-child { margin-left: push_columnFrst(2); }
+.row .push_two { margin-left: push_columns(2); }
+.row .push_two:first-child { margin-left: push_columnFrst(2); }
+.row .push_three { margin-left: push_columns(3); }
+.row .push_three:first-child { margin-left: push_columnFrst(3); }
+.row .push_four { margin-left: push_columns(4); }
+.row .push_four:first-child { margin-left: push_columnFrst(4); }
+.row .push_five { margin-left: push_columns(5); }
+.row .push_five:first-child { margin-left: push_columnFrst(5); }
+.row .push_six { margin-left: push_columns(6); }
+.row .push_six:first-child { margin-left: push_columnFrst(6);  }
+.row .push_seven { margin-left: push_columns(7); }
+.row .push_seven:first-child { margin-left: push_columnFrst(7);  }
+.row .push_eight { margin-left: push_columns(8); }
+.row .push_eight:first-child { margin-left: push_columnFrst(8);  }
+.row .push_nine { margin-left: push_columns(9); }
+.row .push_nine:first-child { margin-left: push_columnFrst(9);  }
+.row .push_ten { margin-left: push_columns(10);}
+.row .push_ten:first-child { margin-left: push_columnFrst(10);  }
+.row .push_eleven { margin-left: push_columns(11); }
+.row .push_eleven:first-child { margin-left: push_columnFrst(11);  }
+
+/* ==================== Centered Classes 		
+------------------------------------------*/
+.row .one.center   { margin-left: center_columns(1);}
+.row .two.center   { margin-left: center_columns(2);}
+.row .three.center { margin-left: center_columns(3);}
+.row .four.center  { margin-left: center_columns(4);}
+.row .five.center  { margin-left: center_columns(5);}
+.row .six.center   { margin-left: center_columns(6);}
+.row .seven.center { margin-left: center_columns(7);}
+.row .eight.center { margin-left: center_columns(8);}
+.row .nine.center  { margin-left: center_columns(9);}
+.row .ten.center   { margin-left: center_columns(10);}
+.row .eleven.center{ margin-left: center_columns(11);}
+
+/* ==================== Typography
+------------------------------------------*/
+/*FONT TRANSITION (overwrite font-size in media query for transition)*/
+
+.smoothFont {
+	text-align: center;
+	@include transition(all 1.5s ease);
+}
+
+h1 {
+	font-size: 4.46666666667em;
+	text-transform: uppercase;
+	letter-spacing: 0.20em;
+	font-weight: 400;
+	line-height: 1.20em;	
+}
+h2 {
+	font-size: 3.2em;
+	letter-spacing: 0.10em;
+	font-weight: 300;
+	color: #666;
+}
+h3 {
+	font-size: 1.8em;
+	text-transform: uppercase;
+	letter-spacing: 0.20em;
+	font-weight: 200;
+}
+h4 {
+	font-size: 0.9em;
+	text-transform: uppercase;
+	font-weight: 200;	
+}
+h5 {
+	font-size: 0.8em;
+	font-weight: 200;
+}
+h6 {
+	font-size: 0.6em;
+	text-transform: uppercase;
+	font-weight: 200;
+}
+
+/* ==================== IMAGES
+------------------------------------------*/
+img, object, embed{max-width: 100%;}
+img{height: auto;}
+.centerImg{margin: 0 auto;display: block;}
+
+/* ==================== FORM INPUTS (wrap inputs with div.field)
+------------------------------------------*/
+.field { position: relative; max-width: 100%; margin-bottom: 10px; vertical-align: middle; font-size: 16px; overflow: hidden; }
+.field input, .field input[type="*"], .field textarea { max-width: 100%; width: 100%; padding: 0; margin: 0; border: none; outline: none; resize: none; -webkit-appearance: none; -webkit-box-shadow: none; -moz-box-shadow: none; box-shadow: none; }
+.field .input { position: relative; padding: 0 10px; background: #fff; border: 1px solid #d8d8d8; height: 36px; line-height: 34px; font-size: 16px; font-size: 1rem; -webkit-border-radius: 4px; -moz-border-radius: 4px; -ms-border-radius: 4px; -o-border-radius: 4px; border-radius: 4px; }
+.field .input.textarea { height: auto;}
+.field input, .field .input, .field textarea, .field .textarea, .field .radio span, .field .checkbox span, .field .picker { -webkit-transition-duration: 0.2s; -moz-transition-duration: 0.2s; -o-transition-duration: 0.2s; transition-duration: 0.2s; }
+
+/* ==================== NAVIGATION
+------------------------------------------*/
+
+.navigation{position:relative;height: 70px;z-index: 99;max-width: $max_width;margin: 0 auto;margin-bottom: 25px;}
+.nav-button{width:46px;height:36px;position:absolute;top:20px;right:20px;cursor:pointer;padding:4px;display:none;z-index:5;}
+.nav-button span{width:100%;height:4px;float:left;margin-bottom:6px;background: #000;}
+.inner{float:left;width:100%;position:relative;z-index:2;}
+.link-holder{float:right;position:relative;}
+.inner ul{margin:10px 20px 0 0;}
+.inner ul li{display:inline-block;}
+.inner ul li a{padding: 10px 0;text-align: center;text-decoration: none;position:relative;}
+.logo{float:left;cursor:pointer;max-height: 40px;text-align: center;}
+
+/* ==================== DROP DOWNS
+------------------------------------------*/
+.navigation ul li .dropdown li>a{ height: 45px; line-height: 43px; }
+.navigation ul li .dropdown { width: 200px; min-width: 0; display:none; height: auto; position: absolute; background: #eee; overflow: hidden; z-index: 999;}
+.navigation ul li .dropdown li { min-height: 50px;float: none; clear: both;display: block;}
+
+/* ==================== SMALLER SCREENS
+------------------------------------------*/
+
+@media only screen and (max-width: 1023px) {
+
+	body {
+		font-size: 0.8em;
+		line-height: 1.5em;
+	}
+}
+
+/* ==================== MOBILE 
+------------------------------------------*/
+@media handheld, only screen and (min-width: 767px) {
+	.navigation .link-holder{display: block !important;}
+}
+
+@media handheld, only screen and (max-width: 767px) {
+	
+	.smoothFont{letter-spacing: 0;}
+	h1{font-size:1.85em;}
+	h2{font-size: 1.8em;}
+	h3{font-size: 1.5em;}
+	body {font-size: 16px;-webkit-text-size-adjust: none;}
+	
+	.row, body, .section {
+	width: 100%;
+	min-width: 0;
+	margin-left: 0px;
+	margin-right: 0px;
+	padding-left: 0px;
+	padding-right: 0px;
+	}
+	
+	.row .one.columns, .row .two.columns, .row .three.columns, .row .four.columns, .row .five.columns, .row .six.columns, .row .seven.columns, .row .eight.columns, .row .nine.columns, .row .ten.columns, .row .eleven.columns, .row .twelve.columns {
+	width: auto;
+	float: none;
+	margin-left: 0px;
+	margin-right: 0px;
+	padding-left: 20px;
+	padding-right: 20px;
+	}
+
+	.nav-button{display: block;}
+	.navigation{height: 50px;float: left;width: 100%;}
+	.inner ul li a{float: none !important;display: inline !important;}
+	.navigation ul li .dropdown { margin-top: 0;width: 100%; min-width: 0; left:0; height: auto; position: absolute; background: #eee; overflow: hidden; z-index: 999;}
+	.navigation ul li .dropdown li { min-height: 50px;float: none; clear: both;display: block;}
+
+	.logo{margin-top: 10px;}
+	.nav-button{display:block;}
+	.wrapper{margin-left:0;}
+	.inner{float:left;width:100%;}
+	.link-holder{position:absolute;top:50px;left:0;width:100%;z-index:2;display:none;background:#212121;}
+	.inner ul {margin:10px 0 0 0;}
+	.inner ul li{float:left;display:block;width:100% !important;}
+	.inner ul li a {float:left;display:block;width:100% !important;}
+	.navigation .columns.logo{width: 50%;}
+}
